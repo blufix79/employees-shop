@@ -1,0 +1,65 @@
+<app-header-page [titlePage]="product.title" [breadCrumbPage]="product.title" iconPage="fas fa-birthday-cake"></app-header-page>
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">
+        <button class="btn btn-secondary" title="Return to product list" [routerLink]="['/products']"><i class="fa fa-arrow-left"></i></button>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header bg-light"><h4><i class="fas fa-list-alt"></i> Details</h4></div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <span class="label">Category:</span> {{product.category}}
+                </li>
+                <li class="list-group-item">
+                  <span class="label">Employee:</span> {{product.employee}}
+                </li>
+                <li class="list-group-item">
+                  <span class="label">Price:</span> {{product.price}}
+                </li>
+                <li class="list-group-item">
+                  <div class="label">Description:</div>
+                  <div class="value">
+                    {{product.description}}
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+
+          </div>
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header bg-light">
+                <h4><i class="fas fa-comment-dots"></i> Reviews</h4>
+              </div>
+              <div class="card-body card-comments">
+                <div class="card" *ngFor="let review of product.reviews">
+                  <div class="card-body card-comment">
+                    <i class="fa fa-comments"></i>
+                    <div class="comment-text">
+                      <span class="username">
+                        {{review.user}}
+                      </span>
+                      <div class="title text-primary">{{review.title}}</div>
+                      {{review.description}}
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body" *ngIf="!product.reviews">
+                    This product not have reviews
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

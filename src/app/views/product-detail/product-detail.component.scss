@@ -1,0 +1,23 @@
+.label{
+  font-weight: bold;
+}
+.card-comments{
+  .card-comment{
+    padding: 1.25rem;
+    .fa{
+      float: left;
+    }
+    .comment-text{
+      .username{
+        color: rgb(112, 112, 112);
+      }
+      .title{
+        font-weight: bold;
+      }
+    }
+  }
+  .card-comment:first-of-type{
+    padding: 1.25rem;
+  }
+
+}

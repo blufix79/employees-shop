@@ -1,0 +1,114 @@
+<app-header-page titlePage="Products" breadCrumbPage="Products" iconPage="fas fa-birthday-cake"></app-header-page>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="action-buttons">
+              <a class="btn btn-primary" title="Add New Product" [routerLink]="['/product-add']"><i class="fa fa-plus-circle"></i></a>
+            </div>
+          </div>
+          <div class="col-md-4 d-none d-md-block">
+            <div class="layout-buttons">
+              <button class="btn btn-outline-secondary" title="Show product in list" [ngClass]="{'active':layoutType=='list'}" (click)="switchLayout()"><i class="fas fa-th-list"></i></button>
+              <button class="btn btn-outline-secondary" title="Show product in grid" [ngClass]="{'active':layoutType=='grid'}" (click)="switchLayout()"><i class="fas fa-th"></i></button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="pagination-buttons">
+              <span class="pages-info">
+                20 of {{totalNumberProducts}}
+              </span>
+              <ul class="pagination pagination-sm float-right">
+                <li class="page-item"><a class="page-link" href="#">«</a></li>
+                <li class="page-item" [ngClass]="{'active': currentPage==page}" *ngFor="let page of pages;" (click)="changePage(page)"><button class="page-link">{{page}}</button></li>
+                <li class="page-item"><a class="page-link" href="#">»</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" [ngClass]="{'grid-body':layoutType=='grid'}">
+        <!-- product item -->
+        <div class="product-item-wrapper" [ngClass]="{'grid':layoutType=='grid'}" *ngFor="let product of products;">
+          <div class="card">
+            <div class="card-header bg-light">
+              <b>{{product.data.title}}</b>
+              <div class="card-tools">
+                <button class="btn btn-primary btn-sm"><i class="fa fa-search" [routerLink]="['/product-detail',product.id]"></i></button>
+                <button class="btn btn-danger btn-sm" title="Delete Product" (click)="delProduct(product.id)"><i class="fa fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="card-body details-product">
+              <div class="row">
+                <div class="col-sm-auto">
+                    <dl>
+                        <dt>Id</dt>
+                        <dd>{{product.id}}</dd>
+                    </dl>
+                </div>
+                <div class="col-sm-auto">
+                    <dl>
+                        <dt>Category</dt>
+                        <dd>{{product.data.category}}</dd>
+                    </dl>
+                </div>
+                <div class="col-sm-auto">
+                    <dl>
+                        <dt>Employee</dt>
+                        <dd>{{product.data.employee}}</dd>
+                    </dl>
+                </div>
+                <div class="col-sm-auto">
+                    <dl>
+                        <dt>Price</dt>
+                        <dd>{{product.data.price}}</dd>
+                    </dl>
+                </div>
+            </div>
+            </div>
+            <div class="card-footer">
+              <div class="card-tools">
+                <div *ngIf="product.data.reviews" class="text-primary"><b><i class="far fa-comments"></i> Product with reviews</b></div>
+                <div *ngIf="!product.data.reviews" class="text-secondary"><b><i class="far fa-comments"></i> Product without reviews</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- product-item -->
+      </div>
+      <div class="card-footer d-flex flex-row-reverse">
+        <div class="pagination-buttons">
+          <span class="pages-info">
+            20 of {{totalNumberProducts}}
+          </span>
+          <ul class="pagination pagination-sm float-right">
+            <li class="page-item"><a class="page-link" href="#">«</a></li>
+            <li class="page-item" [ngClass]="{'active': currentPage==page}" *ngFor="let page of pages;" (click)="changePage(page)"><button class="page-link">{{page}}</button></li>
+            <li class="page-item"><a class="page-link" href="#">»</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<ng-template #confirmModalContent let-modal>
+  <div class="modal-header bg-danger">
+    <h5 class="modal-title" id="deleProductModalLabel"><i class="fas fa-trash"></i> Delete product</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.close('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Are you sure to delete product?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" ngbAutofocus (click)="modal.close('cancel')">Close</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('confirm')">Delete</button>
+  </div>
+</ng-template>

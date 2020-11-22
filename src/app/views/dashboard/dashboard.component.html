@@ -1,0 +1,59 @@
+<app-header-page titlePage="Dashboard" breadCrumbPage="Dashboard" iconPage="fas fa-tachometer-alt "></app-header-page>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>{{totalProducts}}</h3>
+
+            <p>Total Products</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-birthday-cake"></i>
+          </div>
+          <a [routerLink]="['/products']" class="small-box-footer"
+            >View products <i class="fas fa-arrow-circle-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3>{{totalComments}}</h3>
+
+            <p>Total reviews</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-comments"></i>
+          </div>
+          <a href="#" class="small-box-footer"
+            >More info <i class="fas fa-arrow-circle-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-header">
+            <h3><i class="fas fa-chart-pie"></i> The 10 categories with the most products</h3>
+          </div>
+          <div class="card-body">
+            <app-chart-polar></app-chart-polar>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- Main row -->
+</section>
+<!-- /.content -->

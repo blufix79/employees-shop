@@ -1,0 +1,39 @@
+@import "~bootstrap/scss/bootstrap-grid";
+
+.layout-buttons,
+.card-tools {
+  button:first-child {
+    margin-right: 0.2rem;
+  }
+}
+.layout-buttons {
+  text-align: center;
+}
+.pagination-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  float: right;
+  .pages-info {
+    margin-right: 0.5rem;
+  }
+  .pagination {
+    margin: 0;
+  }
+}
+
+.grid-body {
+  @include make-row();
+  .product-item-wrapper {
+    &.grid {
+      @include media-breakpoint-up(sm) {
+        @include make-col(4);
+      }
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
+}
+.product-property-label {
+  font-weight: bold;
+}
