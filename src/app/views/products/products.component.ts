@@ -1,3 +1,4 @@
+import { PaginatedProducts } from './../../models/Product';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsService } from './../../services/products.service';
@@ -33,7 +34,7 @@ export class ProductsComponent implements OnInit {
 
   initPaginator() {
     this.pages = Math.round(this.totalNumberProducts / this.elements);
-    this.pages = Array(this.pages).fill().map((x, i) => i + 1);
+    this.pages = Array(this.pages).fill(0).map((x, i) => i + 1);
   }
 
   changePage(page) {
@@ -42,7 +43,7 @@ export class ProductsComponent implements OnInit {
   }
 
   fetchProducts() {
-    this.productsService.getProducts(this.currentPage, this.elements).subscribe((results) => {
+    this.productsService.getProducts(this.currentPage, this.elements).subscribe((results: PaginatedProducts) => {
       this.totalNumberProducts = results.length;
       this.products = results.list;
 

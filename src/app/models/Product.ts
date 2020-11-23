@@ -6,3 +6,8 @@ export interface Product {
   description: string;
   reviews?;
 }
+
+export interface PaginatedProducts{
+  length: number;
+  list: []
+}

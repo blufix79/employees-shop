@@ -1,6 +1,4 @@
-import { AppChartPieComponent } from './components/app-chart-pie/app-chart-pie.component';
 import { ProductDetailComponent } from './views/product-detail/product-detail.component';
-import { AppProductItemComponent } from './components/app-product-item/app-product-item.component';
 import { AppChartPolarComponent } from './components/app-chart-polar/app-chart-polar.component';
 import { AppHeaderPageComponent } from './components/app-header-page/app-header-page.component';
 import { StatsComponent } from './views/stats/stats.component';
@@ -60,8 +58,7 @@ registerLocaleData(localeEn, 'en-EN');
     AppProductReviewsComponent,
     AppPaginatorComponent,
     AppHeaderPageComponent,
-    AppChartPolarComponent,
-    AppProductItemComponent
+    AppChartPolarComponent
   ],
   imports: [
     BrowserModule,

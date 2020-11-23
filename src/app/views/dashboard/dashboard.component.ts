@@ -1,3 +1,4 @@
+import { PaginatedProducts } from './../../models/Product';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.productsService.getProducts(1, 10)
-      .subscribe(products => {
+      .subscribe((products: PaginatedProducts) => {
         this.totalProducts = products.length;
         this.statsTotalComments(products);
       });

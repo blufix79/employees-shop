@@ -1,4 +1,3 @@
-import { Employee } from './../../models/Store';
 import { StoreService } from './../../services/store.service';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
@@ -37,7 +36,7 @@ export class ProductAddComponent implements OnInit {
       });
   }
 
-  //Getter for validator
+  //Getters for validator
   get title(){ return this.productAddForm.get('title'); }
   get category(){ return this.productAddForm.get('category'); }
   get price(){ return this.productAddForm.get('price'); }
