@@ -1,4 +1,4 @@
-# Test Euris
+# Employees Shop
 Applicazione di esempio dedicata ai dipendenti di un negozio online, dove possono creare, visualizzare e eliminare prodotti sia dall'ufficio che in movimento durante i loro viaggi di lavoro.
 
 Fornisce agli utenti la possibilità di cambiare la disposizione della lista dei prodotti da un layout a pannello a un layout a griglia/mattonelle. Inoltre, un grafico visualizza il rapporto tra i prodotti per categoria.
